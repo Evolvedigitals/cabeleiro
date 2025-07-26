@@ -1,0 +1,141 @@
+/* src/sections/BeautyHighlightSection.css */
+
+.beauty-highlight-section {
+    /* MUDANÇA AQUI: Fundo claro para se destacar */
+    background-color: var(--background-light); /* Usando a variável definida em index.css */
+    /* OU use um hexadecimal direto: background-color: #f8f8f8; */
+    
+    padding: 80px 20px;
+    color: var(--text-color-dark); /* Cor do texto principal será escura */
+    position: relative;
+    overflow: hidden;
+}
+
+.beauty-highlight-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.beauty-highlight-text-container {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    padding-right: 20px;
+}
+
+.beauty-highlight-title {
+    font-family: var(--font-primary);
+    font-size: 2.8em;
+    color: var(--primary-color); /* Mantenha a cor dourada para o título */
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.beauty-highlight-paragraph {
+    font-size: 1.1em;
+    line-height: 1.8;
+    /* MUDANÇA AQUI: Cor mais escura para os parágrafos para contraste com fundo claro */
+    color: var(--text-color-gray); /* Ou um #555, #666 */
+    margin-bottom: 20px;
+}
+
+.beauty-highlight-image-container {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.beauty-highlight-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais suave para fundo claro */
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Classes para o efeito de fade */
+.beauty-highlight-image.fade-out {
+  opacity: 0;
+}
+
+.beauty-highlight-image.fade-in {
+  opacity: 1;
+}
+
+/* Decorações de Canto */
+.corner-decoration {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('/images/corner_decoration.png'); /* Certifique-se de ter esta imagem */
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.corner-decoration.top-left {
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+}
+
+.corner-decoration.bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .beauty-highlight-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+        padding-right: 0;
+        gap: 30px;
+    }
+
+    .beauty-highlight-text-container {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .beauty-highlight-title {
+        font-size: 2.2em;
+    }
+
+    .beauty-highlight-image-container {
+        order: -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .beauty-highlight-section {
+        padding: 50px 15px;
+    }
+
+    .beauty-highlight-title {
+        font-size: 1.8em;
+    }
+
+    .beauty-highlight-paragraph {
+        font-size: 1em;
+    }
+
+    .corner-decoration {
+        width: 70px;
+        height: 70px;
+    }
+}

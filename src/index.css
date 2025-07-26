@@ -1,0 +1,60 @@
+/* src/index.css */
+
+:root {
+    /* Defina suas variáveis de cores aqui para reutilização */
+    --primary-color: #d4af37; /* Dourado/Bronze para destaque */
+    --secondary-color: #8a2be2; /* Azul violeta (se usar) */
+    --background-light: #f8f8f8;
+    --background-dark: #000;
+    --text-color-dark: #333;
+    --text-color-light: #fff;
+    --text-color-gray: #555;
+    --font-primary: 'Georgia', serif; /* Fonte para títulos */
+    --font-secondary: 'Arial', sans-serif; /* Fonte para textos comuns */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-secondary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f0f2f5; /* Uma cor de fundo suave para o corpo */
+    line-height: 1.6;
+    color: var(--text-color-dark);
+}
+
+/* Reset básico */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Estilos para o Rodapé (Footer) - incluídos aqui para simplicidade */
+.app-footer {
+  background-color: var(--background-dark);
+  color: var(--text-color-light);
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 50px;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.app-footer p {
+  margin-bottom: 5px;
+}

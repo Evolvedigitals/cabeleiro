@@ -1,0 +1,123 @@
+/* src/sections/BarbersSection.css */
+
+.barbers-section {
+  padding: 80px 20px; /* Mais padding para cima/baixo */
+  background-color: var(--background-light); /* Fundo claro */
+  text-align: center; /* Centraliza o título */
+  position: relative;
+}
+
+/* Padrão geométrico nas bordas superior e inferior (se usar) */
+.barbers-section::before,
+.barbers-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Altura do padrão */
+    background-image: url('/images/geometric-pattern.png'); /* Caminho para seu padrão */
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.05; /* Mais sutil */
+    z-index: 1; /* Acima do background, abaixo do conteúdo */
+    pointer-events: none;
+}
+
+.barbers-section::before {
+    top: 0;
+    transform: rotate(180deg); /* Inverte para a parte superior */
+}
+
+.barbers-section::after {
+    bottom: 0;
+}
+
+
+.section-title {
+  font-family: 'Playfair Display', serif; /* Use a mesma fonte elegante */
+  font-size: 3em;
+  color: var(--text-color-dark);
+  margin-bottom: 60px; /* Mais espaço abaixo do título */
+  position: relative;
+  z-index: 2; /* Garante que o título esteja acima do padrão */
+}
+
+.barbers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 colunas em telas maiores, ajusta para menos em telas pequenas */
+  gap: 30px; /* Espaçamento entre as imagens */
+  max-width: 1200px; /* Largura máxima da grade */
+  margin: 0 auto; /* Centraliza a grade */
+}
+
+.barber-card {
+  background-color: #fff; /* Fundo branco para os cartões */
+  border-radius: 10px; /* Bordas arredondadas */
+  overflow: hidden; /* Garante que a imagem respeite o border-radius */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.barber-card:hover {
+  transform: translateY(-8px); /* Efeito de elevação ao passar o mouse */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+
+.barber-image {
+  width: 100%;
+  height: 300px; /* Altura fixa para as imagens */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+  border-radius: 10px 10px 0 0; /* Arredonda apenas a parte superior da imagem */
+}
+
+/* Opcional: Nome do barbeiro, se você quiser adicionar no JSX */
+/* .barber-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--text-color-dark);
+  padding: 15px;
+} */
+
+/* Media Queries para Responsividade */
+@media (max-width: 1024px) {
+  .barbers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajuste para telas médias */
+    gap: 25px;
+  }
+  .section-title {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .barbers-section {
+    padding: 60px 15px;
+  }
+  .barbers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 2 colunas em telas menores */
+    gap: 20px;
+  }
+  .section-title {
+    font-size: 2em;
+    margin-bottom: 40px;
+  }
+  .barber-image {
+    height: 250px; /* Altura ajustada */
+  }
+}
+
+@media (max-width: 480px) {
+  .barbers-section {
+    padding: 40px 10px;
+  }
+  .barbers-grid {
+    grid-template-columns: 1fr; /* Uma coluna em celulares */
+  }
+  .barber-image {
+    height: 200px; /* Altura ajustada */
+  }
+  .section-title {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+}

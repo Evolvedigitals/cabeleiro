@@ -1,0 +1,151 @@
+/* src/sections/BeautySection.css */
+
+.beauty-section {
+  padding: 80px 20px;
+  background-color: var(--background-light); /* Fundo claro */
+  color: var(--text-color-dark); /* Texto escuro */
+  display: flex; /* Para alinhar conteúdo e imagem lado a lado */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas pequenas */
+  gap: 50px; /* Espaçamento entre o texto e a imagem */
+  max-width: 1400px; /* Largura máxima da seção */
+  margin: 0 auto; /* Centraliza a seção na página */
+  position: relative;
+}
+
+/* Padrão geométrico nas bordas superior e inferior (se usar) */
+.beauty-section::before,
+.beauty-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Altura do padrão */
+    background-image: url('/images/geometric-pattern.png'); /* Caminho para seu padrão */
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.05; /* Mais sutil */
+    z-index: 1; /* Acima do background, abaixo do conteúdo */
+    pointer-events: none;
+}
+
+.beauty-section::before {
+    top: 0;
+    transform: rotate(180deg); /* Inverte para a parte superior */
+}
+
+.beauty-section::after {
+    bottom: 0;
+}
+
+
+.beauty-content {
+  flex: 1; /* Ocupa o espaço disponível */
+  min-width: 300px; /* Largura mínima para o conteúdo */
+  max-width: 600px; /* Largura máxima para o conteúdo */
+  text-align: left; /* Alinha o texto à esquerda */
+  position: relative;
+  z-index: 2;
+}
+
+.beauty-content .section-title { /* Reutiliza o estilo do título */
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  color: var(--text-color-dark);
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.beauty-description {
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.7); /* Texto um pouco mais claro */
+}
+
+.beauty-image-container {
+  flex-shrink: 0; /* Não encolhe a imagem */
+  width: 500px; /* Largura fixa da imagem */
+  height: 400px; /* Altura fixa da imagem */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra para a imagem */
+  position: relative;
+  z-index: 2;
+}
+
+.beauty-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha o container */
+  display: block;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 1200px) {
+  .beauty-section {
+    gap: 40px;
+  }
+  .beauty-image-container {
+    width: 450px;
+    height: 360px;
+  }
+  .beauty-content .section-title {
+    font-size: 2.8em;
+  }
+  .beauty-description {
+    font-size: 1.05em;
+  }
+}
+
+@media (max-width: 992px) {
+  .beauty-section {
+    flex-direction: column; /* Empilha os itens em telas menores */
+    text-align: center; /* Centraliza o texto */
+    padding: 60px 15px;
+    gap: 30px;
+  }
+  .beauty-content {
+    max-width: 100%; /* Ocupa toda a largura disponível */
+  }
+  .beauty-content .section-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  .beauty-description {
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+  .beauty-image-container {
+    width: 100%; /* Imagem ocupa toda a largura */
+    height: 300px; /* Altura ajustada */
+  }
+}
+
+@media (max-width: 768px) {
+  .beauty-section {
+    padding: 50px 15px;
+  }
+  .beauty-content .section-title {
+    font-size: 2.2em;
+  }
+  .beauty-image-container {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .beauty-section {
+    padding: 40px 10px;
+  }
+  .beauty-content .section-title {
+    font-size: 1.8em;
+  }
+  .beauty-description {
+    font-size: 0.95em;
+  }
+  .beauty-image-container {
+    height: 200px;
+  }
+}

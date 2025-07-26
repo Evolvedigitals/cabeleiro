@@ -1,0 +1,143 @@
+/* src/sections/SpaceSection.css */
+
+.space-section {
+  padding: 80px 20px;
+  background-color: var(--background-dark); /* Fundo escuro */
+  color: var(--text-color-light); /* Texto claro */
+  text-align: center;
+  position: relative;
+}
+
+/* Opcional: Padrão geométrico nas bordas superior e inferior, se desejar */
+.space-section::before,
+.space-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Altura do padrão */
+    background-image: url('/images/geometric-pattern.png'); /* Caminho para seu padrão */
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.05;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.space-section::before {
+    top: 0;
+    transform: rotate(180deg);
+}
+
+.space-section::after {
+    bottom: 0;
+}
+
+.space-section .section-title { /* Reutiliza o estilo do título, mas pode ajustar a cor */
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  color: var(--text-color-light); /* Título claro */
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.space-description {
+  max-width: 800px; /* Limita a largura do texto para melhor leitura */
+  margin: 0 auto 60px auto; /* Centraliza o texto e adiciona margem inferior */
+  font-size: 1.15em;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8); /* Texto um pouco mais claro */
+  position: relative;
+  z-index: 2;
+}
+
+.space-gallery-grid {
+  display: grid;
+  /* Grid para 3 colunas em telas maiores, 2 em médias, 1 em pequenas */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; /* Espaçamento entre as imagens */
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza a grade */
+  position: relative;
+  z-index: 2;
+}
+
+.space-gallery-item {
+  background-color: #1a1a1a; /* Fundo sutil para o item */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra mais escura */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.space-gallery-item:hover {
+  transform: scale(1.02); /* Leve zoom ao passar o mouse */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.space-image {
+  width: 100%;
+  height: 250px; /* Altura fixa para as imagens da galeria */
+  object-fit: cover;
+  display: block; /* Remove o espaço extra abaixo da imagem */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 1024px) {
+  .space-gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .space-section .section-title {
+    font-size: 2.5em;
+  }
+  .space-description {
+    font-size: 1.05em;
+    margin-bottom: 40px;
+  }
+  .space-image {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .space-section {
+    padding: 60px 15px;
+  }
+  .space-gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 2 colunas */
+    gap: 15px;
+  }
+  .space-section .section-title {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+  .space-description {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  .space-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .space-section {
+    padding: 40px 10px;
+  }
+  .space-gallery-grid {
+    grid-template-columns: 1fr; /* 1 coluna */
+    gap: 10px;
+  }
+  .space-section .section-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  .space-description {
+    font-size: 0.95em;
+    margin-bottom: 25px;
+  }
+  .space-image {
+    height: 150px;
+  }
+}
