@@ -1,101 +1,123 @@
 /* src/sections/HeroSection.css */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 .hero-section {
-  height: 90vh; /* Ajuste para ocupar a maior parte da tela, descontando o header */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--text-color-light); /* Texto claro */
-  text-align: center;
-  position: relative;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    color: white;
+    overflow: hidden;
 }
 
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro */
-  z-index: 0; /* Abaixo do conteúdo */
+.hero-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
 }
 
 .hero-content {
-  z-index: 1; /* Conteúdo acima do overlay */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px; /* Adiciona um padding para espaçamento em telas menores */
+    position: absolute;
+    z-index: 1;
+    /* MUDANÇA: Posições ajustadas com base nas imagens */
+    left: 10%; /* Mais para a esquerda */
+    top: 55%; /* Mais abaixo do centro */
+    transform: translateY(-50%); /* Ajuste fino para o centro vertical */
+    text-align: left; /* Alinhado à esquerda */
+    padding: 0 20px; /* Remover padding superior/inferior se já está no top/transform */
+    max-width: 80%; /* Limita a largura para que não chegue muito na direita */
 }
 
 .hero-title {
-  font-family: 'Playfair Display', serif; /* Fonte elegante importada no index.html */
-  font-size: 4.5em; /* Tamanho maior para o título */
-  margin-bottom: 40px;
-  line-height: 1.1;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Sombra mais forte */
-  font-style: italic;
-  font-weight: 500; /* Pode ajustar o peso da fonte conforme a sua versão da fonte */
+    font-family: 'Dancing Script', cursive; /* Certifique-se de importar esta fonte! */
+    font-size: 5.5em; /* MUDANÇA: Um pouco maior para se destacar mais */
+    color: white;
+    margin-bottom: 25px; /* Espaçamento entre título e botão */
+    line-height: 1; /* MUDANÇA: Linha altura para aproximar as letras */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8); /* MUDANÇA: Sombra mais pronunciada */
+    white-space: nowrap; /* Tenta manter o texto em uma linha */
 }
 
 .hero-button {
-  background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
-  color: var(--text-color-dark);
-  border: none;
-  padding: 18px 50px; /* Botão maior */
-  font-size: 1.3em;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px; /* Mais arredondado */
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+    background-color: #f0f0f0;
+    background-image: url('/images/marble_texture.jpg');
+    background-size: cover;
+    background-position: center;
+    color: black;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgb(212,172,60); /* Usando um RGBA com a cor dourada (d4af37) e opacidade */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-button:hover {
-  background-color: var(--primary-color);
-  color: var(--text-color-light);
-  transform: translateY(-3px); /* Efeito de elevação ao passar o mouse */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
-/* Media Queries para Responsividade do Hero Section */
-@media (max-width: 1024px) {
-  .hero-title {
-    font-size: 3.5em;
-  }
-  .hero-button {
-    padding: 15px 40px;
-    font-size: 1.2em;
-  }
+/* Responsividade para a Hero Section */
+@media (max-width: 1200px) {
+    .hero-content {
+        left: 8%;
+        top: 55%;
+    }
+    .hero-title {
+        font-size: 4.5em;
+    }
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    height: 70vh;
-  }
-  .hero-title {
-    font-size: 2.8em;
-    margin-bottom: 30px;
-  }
-  .hero-button {
-    padding: 12px 30px;
-    font-size: 1.1em;
-  }
+@media (max-width: 992px) {
+    .hero-content {
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center; /* Centraliza o texto em telas menores */
+        width: 90%;
+    }
+    .hero-title {
+        font-size: 3.5em;
+        white-space: normal; /* Permite quebrar em telas menores */
+    }
+    .hero-button {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
 }
 
-@media (max-width: 480px) {
-  .hero-section {
-    height: 60vh;
-  }
-  .hero-title {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  .hero-button {
-    padding: 10px 25px;
-    font-size: 1em;
-  }
+@media (max-width: 600px) {
+    .hero-content {
+        left: 0; /* Centraliza completamente em telas muito pequenas */
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        top: 45%;
+        width: 95%;
+    }
+    .hero-title {
+        font-size: 2.8em;
+    }
+    .hero-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-title {
+        font-size: 2em;
+    }
 }

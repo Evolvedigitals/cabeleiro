@@ -1,42 +1,37 @@
 /* src/index.css */
 
+/* Importação de fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap'); /* Para o título da Hero Section */
+/* Se precisar de uma fonte serifada para outros títulos, adicione aqui */
+@import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap'); /* Exemplo para o logo OLIMPO ou títulos */
+
+/* Variáveis CSS para cores e fontes (Centralize aqui para fácil modificação) */
 :root {
-    /* Defina suas variáveis de cores aqui para reutilização */
-    --primary-color: #d4af37; /* Dourado/Bronze para destaque */
-    --secondary-color: #8a2be2; /* Azul violeta (se usar) */
-    --background-light: #f8f8f8;
-    --background-dark: #000;
-    --text-color-dark: #333;
-    --text-color-light: #fff;
-    --text-color-gray: #555;
-    --font-primary: 'Georgia', serif; /* Fonte para títulos */
-    --font-secondary: 'Arial', sans-serif; /* Fonte para textos comuns */
+    --primary-color: #d4af37; /* Cor dourada */
+    --secondary-color: #f0f0f0; /* Um cinza claro para detalhes */
+    --background-light: #fdfdfd; /* Fundo quase branco/bege claro */
+    --background-dark: #1a1a1a; /* Fundo escuro para seções futuras, se necessário */
+    --text-color-dark: #333; /* Cor de texto padrão escuro */
+    --text-color-light: #fff; /* Cor de texto padrão claro */
+
+    --font-primary: 'Arial', sans-serif; /* Fonte padrão */
+    --font-secondary: 'Georgia', serif; /* Fonte para títulos/logos */
+    --font-handwriting: 'Dancing Script', cursive; /* Fonte para títulos especiais */
 }
 
-body {
+/* Reset Básico */
+* {
     margin: 0;
-    font-family: var(--font-secondary);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #f0f2f5; /* Uma cor de fundo suave para o corpo */
-    line-height: 1.6;
-    color: var(--text-color-dark);
-}
-
-/* Reset básico */
-*, *::before, *::after {
+    padding: 0;
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+html, body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    scroll-behavior: smooth;
+    background-color: var(--background-light); /* Garante que o fundo da página seja claro */
 }
 
 a {
@@ -44,17 +39,11 @@ a {
     color: inherit;
 }
 
-/* Estilos para o Rodapé (Footer) - incluídos aqui para simplicidade */
-.app-footer {
-  background-color: var(--background-dark);
-  color: var(--text-color-light);
-  padding: 30px 20px;
-  text-align: center;
-  font-size: 0.9em;
-  margin-top: 50px;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
+ul {
+    list-style: none;
 }
 
-.app-footer p {
-  margin-bottom: 5px;
+/* Estilos globais para botões, etc. podem ir aqui */
+button {
+    font-family: var(--font-primary);
 }

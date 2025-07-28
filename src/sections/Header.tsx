@@ -1,28 +1,36 @@
 // src/sections/Header.tsx
 
+import React from 'react';
 import './Header.css';
 
-function Header() {
+const Header: React.FC = () => {
   return (
-    <header className="header">
-      <div className="header-logo">
-        {/* Caminho absoluto para a imagem na pasta public */}
-        <img src="/images/logo-olimpo.jpg" alt="Logo Olimpo" />
+    <header className="main-header">
+      <div className="header-left">
+        <span className="header-logo">OLIMPO</span>
       </div>
-      <nav className="header-nav">
-        <ul>
-          <li><a href="#olimpo-skin">OLIMPO SKIN</a></li>
-          <li><a href="#olimpo-wear">OLIMPO WEAR</a></li>
-          <li>
-            <a href="#profile">
-              {/* Ícone de usuário simples, ou você pode usar um SVG/PNG */}
-              <span className="user-icon">👤</span> 
-            </a>
-          </li>
-        </ul>
-      </nav>
+      
+      {/* NOVO: Agrupar navegação e ícone de perfil em uma div */}
+      <div className="header-right-group">
+        <nav className="header-nav">
+          <ul>
+            <li><a href="#olimpo-skin" className="nav-item">
+              <img src="/images/olimpo_skin_icon.png" alt="Olimpo Skin" className="nav-icon" />
+              OLIMPO SKIN
+            </a></li>
+            <li><a href="#olimpo-wear" className="nav-item">
+              <img src="/images/olimpo_wear_icon.png" alt="Olimpo Wear" className="nav-icon" />
+              OLIMPO WEAR
+            </a></li>
+          </ul>
+        </nav>
+        {/* Ícone de Perfil separado para controle de espaçamento e alinhamento */}
+        <a href="#profile" className="header-profile-link"> {/* NOVO: Link para o ícone de perfil */}
+            <img src="/images/profile_icon.png" alt="Perfil" className="header-profile-icon" />
+        </a>
+      </div>
     </header>
   );
-}
+};
 
 export default Header;
