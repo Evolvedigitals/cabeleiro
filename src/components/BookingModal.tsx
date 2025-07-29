@@ -23,7 +23,7 @@ interface HorarioDisponivel {
 // Dados dummy para horários (em um ambiente real, isso seria dinâmico)
 const getHorariosParaData = (date: string): HorarioDisponivel[] => {
   // Simulação: Horários diferentes para um dia específico (ex: 21 de Julho)
-  if (date === '2025-07-21') { // Usando o exemplo da imagem
+  if (date === '2025-07-21') {
     return [
       { id: 1, hora: '09:00' },
       { id: 2, hora: '09:30' },
@@ -60,9 +60,9 @@ interface BookingModalProps {
     cutId: number | null;
     date: string | null;
     timeId: number | null;
-    clientName: string; // Novo campo
-    clientEmail: string; // Novo campo
-    clientPhone: string; // Novo campo
+    clientName: string;
+    clientEmail: string;
+    clientPhone: string;
   }) => void;
 }
 
@@ -90,7 +90,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onComplete
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [availableTimes, setAvailableTimes] = useState<HorarioDisponivel[]>([]);
 
-  // NOVO: Estados para os campos do formulário
+  // Estados para os campos do formulário
   const [clientName, setClientName] = useState('');
   const [clientEmail, setClientEmail] = useState('');
   const [clientPhone, setClientPhone] = useState('');
@@ -120,7 +120,6 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onComplete
   const handlePreviousStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
-      // Opcional: Resetar a seleção da etapa anterior ao voltar
       if (currentStep === 2) setSelectedCutId(null);
       if (currentStep === 3) { setSelectedDate(null); setSelectedTimeId(null); }
       if (currentStep === 4) {
@@ -189,10 +188,10 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onComplete
     return (currentStep / 4) * 100 + '%';
   };
 
-  // Lógica do Calendário (mantida do código anterior)
+  // Lógica do Calendário
   const getDaysInMonth = (month: number, year: number) => {
     const date = new Date(year, month, 1);
-    const days = [];
+    // REMOVIDO: const days = []; // Esta linha causava o erro TS6133
     // Ajuste para começar na segunda-feira
     let firstDayOfWeek = date.getDay(); // 0 = Dom, 1 = Seg, ..., 6 = Sab
     if (firstDayOfWeek === 0) firstDayOfWeek = 7; // Trata domingo como 7 para ajuste
@@ -292,7 +291,6 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onComplete
               <span className="no-preference-icon">&#x26D4;</span>
               Sem preferência
             </button>
-            {/* Botão Seguinte removido pois a seleção automática avança */}
           </>
         );
       case 2: // Escolher Corte
@@ -311,7 +309,6 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onComplete
                 </div>
               ))}
             </div>
-            {/* Botão Seguinte removido pois a seleção automática avança */}
           </>
         );
       case 3: // Escolher Data e Hora
@@ -373,7 +370,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onComplete
         return (
             <>
                 <p className="modal-subtitle">Confirma a tua marcação</p>
-                <div className="booking-summary-top"> {/* Novo container para o resumo no topo */}
+                <div className="booking-summary-top">
                     <div className="summary-card">
                         <p className="summary-cut-name">{selectedCut ? selectedCut.nome : 'Corte Indefinido'}</p>
                         <p className="summary-barber-date-time">
@@ -382,7 +379,6 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, onComplete
                             {selectedTime ? selectedTime.hora : ''}
                         </p>
                     </div>
-                    {/* Se você tiver uma imagem pequena do barbeiro ou um ícone para o serviço, pode colocá-lo aqui */}
                     {selectedBarber && (
                         <img src={selectedBarber.foto} alt={selectedBarber.nome} className="summary-barber-pic" />
                     )}
