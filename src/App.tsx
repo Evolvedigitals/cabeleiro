@@ -9,6 +9,7 @@ import BeautyHighlightSection from './sections/BeautyHighlightSection'; // A se�
 import SpaceSection from './sections/SpaceSection'; // Presumo que você terá um arquivo SpaceSection.tsx
 import ContactSection from './sections/ContactSection'; // A seção de Contato
 import './index.css'; // Para estilos globais ou App.css se você criar um separado
+import BeautySection from './sections/BeautySection';
 
 // Componente Footer simples
 function Footer() {
@@ -29,7 +30,8 @@ const App: React.FC = () => {
         <HeroSection />
         <BarbersSection />
         <OlimpoCoinSection />
-        <BeautyHighlightSection /> {/* A seção que discutimos com texto e imagem */}
+        <BeautySection /> {/* A seção que discutimos com texto e imagem */}
+        <BeautyHighlightSection  />
         <SpaceSection />
         <ContactSection />
       </main>

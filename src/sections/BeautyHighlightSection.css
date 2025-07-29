@@ -2,7 +2,7 @@
 
 .beauty-highlight-section {
     /* MUDANÇA AQUI: Fundo claro para se destacar */
-    background-color: var(--background-light); /* Usando a variável definida em index.css */
+    background-image: url('/images/sla t11.jpg');; /* Usando a variável definida em index.css */
     /* OU use um hexadecimal direto: background-color: #f8f8f8; */
     
     padding: 80px 20px;

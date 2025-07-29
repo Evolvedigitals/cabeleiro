@@ -6,10 +6,10 @@ function BarbersSection() {
   // Array de objetos para as imagens dos barbeiros
   // Usando URLs de imagens aleatórias por enquanto
   const barbers = [
- { id: 1, src: '/images/cabeliro.jpg', alt: 'Barbeiro 1' },
-    { id: 2, src: '/images/cabeliro.jpg', alt: 'Barbeiro 2' },
-    { id: 3, src: '/images/cabeliro.jpg', alt: 'Barbeiro 3' },
-    { id: 4, src: '/images/cabeliro.jpg', alt: 'Barbeiro 4' },
+ { id: 1, src: '/images/ca1.jpg', alt: 'Barbeiro 1' },
+    { id: 2, src: '/images/ca2.jpg', alt: 'Barbeiro 2' },
+    { id: 3, src: '/images/ca3.jpg', alt: 'Barbeiro 3' },
+    { id: 4, src: '/images/ca4.jpg', alt: 'Barbeiro 4' },
   ];
 
   return (

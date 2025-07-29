@@ -2,14 +2,14 @@
 
 .olimpo-coin-section {
   padding: 80px 20px;
-  background-color: var(--background-dark); /* Fundo escuro */
+  background-color: rgba(124, 121, 121, 0.425); /* Fundo escuro */
   color: var(--text-color-light); /* Texto claro */
   display: flex;
   flex-wrap: wrap; /* Permite que os itens quebrem a linha */
   justify-content: center;
   align-items: center;
   gap: 60px; /* Espaçamento entre a imagem e o texto */
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 0 auto;
   position: relative;
 }

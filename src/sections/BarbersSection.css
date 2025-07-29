@@ -53,6 +53,7 @@
 .barber-card {
   background-color: #fff; /* Fundo branco para os cartões */
   border-radius: 10px; /* Bordas arredondadas */
+  max-height: 800px;
   overflow: hidden; /* Garante que a imagem respeite o border-radius */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -65,7 +66,7 @@
 
 .barber-image {
   width: 100%;
-  height: 300px; /* Altura fixa para as imagens */
+  height: 370px; /* Altura fixa para as imagens */
   object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
   border-radius: 10px 10px 0 0; /* Arredonda apenas a parte superior da imagem */
 }

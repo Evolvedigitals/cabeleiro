@@ -1,37 +1,12 @@
 // src/sections/BeautyHighlightSection.tsx
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './BeautyHighlightSection.css';
 
-// Caminho para as imagens, ajuste conforme onde você as salvou em public/images/
-const image1 = '/images/pedras.jpg';
-const image2 = '/images/pedras_fundo.jpg'; // Verifique o nome real do seu arquivo!
+// Caminho para a imagem, ajuste conforme necessário.
+const imagemUnica = '/images/livro.jpg';
 
 const BeautyHighlightSection: React.FC = () => {
-  const [currentImage, setCurrentImage] = useState(image1);
-  const [isFading, setIsFading] = useState(false);
-
-  useEffect(() => {
-    // console.log("BeautyHighlightSection: useEffect is running"); // Remova após depuração
-    const interval = setInterval(() => {
-      // console.log("BeautyHighlightSection: Interval is triggering"); // Remova após depuração
-      setIsFading(true); // Inicia o fade out
-      setTimeout(() => {
-        setCurrentImage(prevImage => {
-          const newImage = (prevImage === image1 ? image2 : image1);
-          // console.log("BeautyHighlightSection: Changing image to", newImage); // Remova após depuração
-          return newImage;
-        });
-        setIsFading(false); // Termina o fade in da nova imagem
-      }, 500); // Tempo da transição CSS
-    }, 5000); // Troca a cada 5 segundos
-
-    return () => {
-      // console.log("BeautyHighlightSection: Clearing interval"); // Remova após depuração
-      clearInterval(interval);
-    };
-  }, []);
-
   return (
     <section className="beauty-highlight-section">
       <div className="beauty-highlight-content-wrapper">
@@ -50,13 +25,13 @@ const BeautyHighlightSection: React.FC = () => {
         </div>
         <div className="beauty-highlight-image-container">
           <img
-            src={currentImage}
+            src={imagemUnica}
             alt="Detalhes da Beleza do Olimpo"
-            className={`beauty-highlight-image ${isFading ? 'fade-out' : 'fade-in'}`}
+            className="beauty-highlight-image" // Apenas a classe base é necessária
           />
         </div>
       </div>
-      {/* Elementos decorativos (serão estilizados via CSS de fundo ou pseudo-elementos) */}
+      {/* Elementos decorativos */}
       <div className="corner-decoration top-left"></div>
       <div className="corner-decoration bottom-right"></div>
     </section>
